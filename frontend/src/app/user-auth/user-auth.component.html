@@ -1,0 +1,58 @@
+<nav>
+
+</nav>
+
+<h1 style="text-align:center">
+Welcome !! please login to view leave requests  </h1>
+  <div class="login">
+    
+    <h2 class="login-header">Log in</h2>
+    
+    
+    <form [formGroup]="authForm" class="login-container" (ngSubmit)="signIn()">   
+        
+        
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors}">
+            <input type="email" placeholder="Email" formControlName="email" required  minlength="7"  pattern="">
+        </p>    
+        
+        <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+            <div *ngIf="formControls.email.errors.required">Email is required</div>
+        <!-- <div *ngIf="authForm.get('Email')?.hasError('required') && authForm.get('Email')?.touched "  ></div> -->
+
+        <div *ngIf="formControls.email.errors.minlength">
+          Please Enter a valid Email address 
+          Please Enter a valid Email  </div>
+       <div *ngIf=" formControls.email.errors.pattern">
+        Please Enter a valid Email pattern 
+        You must need a @ in your email address
+      </div>
+
+        </div>    
+        <!-- leaveForm.get('name')?.hasError('required') && leaveForm.get('name')?.touched -->
+        <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors?.touched  }">
+            
+            <input type="password" placeholder="Password" formControlName="password" required minlength="8" pattern='(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'>
+    
+        </p>  
+        
+        <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+        <div *ngIf="formControls.password.errors.required">Password is required
+          password should contain atleast 8 characters
+          Your password atleast contain one Uper case, lowercase, numerical values with special characters
+        </div>
+        <div *ngIf="formControls.password.errors.pattern">
+          please enter a valid password          </div>
+          <div *ngIf="formControls.password.errors.minlength">
+             </div>   
+
+
+        </div>
+        
+        <p>
+    
+            <input type="submit" value="Login">
+      </p>
+    
+    </form>
+  </div>

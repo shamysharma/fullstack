@@ -1,0 +1,33 @@
+/* html {
+  background-color:  rgb(243, 220, 183);
+  font-size: medium;
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
+  background-size: cover;
+}
+form {
+width: 100%;
+clear: both;
+}
+form input{
+width: 100%;
+clear: both;
+}
+.navbar {
+background-color: rgb(29, 39, 58);
+height: auto;
+width: auto;
+margin: auto;
+padding: 10px;
+border: 5px solid royalblue;
+border-radius: 10px;
+} */
+
+
+@import  url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+body {
+    background: #456;
+    font-family: 'Open Sans', sans-serif;
+}

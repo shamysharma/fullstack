@@ -1,0 +1,52 @@
+<p>leave-table works!</p>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <span class="navbar-text"> 
+         <button style=color:black [routerLink]="['/leave-form']" >Sign out</button>
+    </span>
+  </div>
+</nav>
+<div class="container">
+    <h2 class="mt-4">Leave Requests</h2>
+    <table class="table table-bordered mt-4">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Leave Type</th>
+          <th>From Date</th>
+          <th>To Date</th>
+          <th>Team Name</th>
+          <th>File</th>
+          <th>Reporter</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leave of leaveData">
+          <td>{{ leave.Id }}</td>
+          <td>{{ leave.Name }}</td>
+          <td>{{ leave.Leave_type }}</td>
+          <td>{{ leave.From_date }}</td>
+          <td>{{ leave.To_date }}</td>
+          <td>{{ leave.Team_name }}</td>
+          <td>{{ leave.Sick_leaves_file }}</td>
+          <td>{{ leave.Reporter }}</td>
+          <td>{{ leave.Status}}</td>
+          <td>
+            <ng-container *ngIf="leave.Leave_type === 'Sick leave'">
+
+              <a href="http://localhost:0.0.0.0/documents/temp/mple.pdf" download>
+              
+                <button>Download</button>
+               
+      
+            </a>
+      
+          </ng-container>
+           
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

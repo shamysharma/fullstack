@@ -1,0 +1,54 @@
+
+<body>
+<p>view-visuals works!</p>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-text"> 
+           <button style=color:black [routerLink]="['/leave-form']" >Home</button>
+           <button style=color:black [routerLink]="['/manager-data']" >back</button>
+      </span>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 class="mt-4">Leave Requests</h2>
+    <table class="table table-bordered mt-4">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let topfive of topFivedata ">
+             <td>{{ topfive.Name }}</td>
+            <td>{{ topfive.Count}}</td>
+       </tr>
+
+    </tbody>
+    </table>
+  </div>
+</body>
+<br>
+
+<div class="barChart">
+    <canvas baseChart
+    [data]="barChartData"
+    [options]="barChartOptions"
+    [plugins]="barChartPlugins"
+    [legend]="barChartLegend"
+    [type]="'bar'"></canvas>
+    
+</div>
+
+
+
+<br>
+
+
+
+<div class="chart-container">
+  <canvas  id="MyChart" >{{ chart }}
+  </canvas>
+</div>

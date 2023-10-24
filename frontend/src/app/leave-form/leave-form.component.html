@@ -1,0 +1,171 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <span class="navbar-text"> 
+        
+      <button style=color:#f30de7ea  *ngIf="tableBtn" (click)="showTable()">Login </button>           
+    </span>
+  </div>
+</nav>
+<div class="container">
+
+  <h2 class="mt-4">Leave Request Form</h2>
+  <form [formGroup]="leaveForm" (ngSubmit)="onSubmit()"  class="mt-4">
+    <div class="form-group" *ngIf="leaveForm">
+     
+     
+      <label for="name" [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors}"> Name: </label>
+      <input
+        type="text"
+        id="name"
+        formControlName="name"
+        class="form-control"
+        placeholder="Enter your name"
+        required
+        pattern = "[a-zA-Z,]*"
+      />
+      <div
+        *ngIf="leaveForm.get('name')?.hasError('required') && leaveForm.get('name')?.touched"
+        class="text-danger mt-2"
+      >
+        Name is required.
+        Name should not contains any numerical values 
+        and special characters
+      </div>
+      
+        </div>
+
+    <div class="form-group" *ngIf="leaveForm">
+      <label for="leave_type">Leave Type: </label>
+
+
+      <fieldset>
+        <div class="form-group">
+        
+          <input type="radio" id="Casual Leave" value="Casual Leave" formControlName="leave_type"  class="form-control" required>
+          <label for="Casual Leave">Casual leave</label><br>
+
+          <input type="radio" id="Earned Leave" value="Earned Leave" formControlName="leave_type"  class="form-control" required>
+          <label for="Earned Leave">Earned Leave</label><br>
+         
+          <input type="radio" id="Sickleave"  value="Sickleave" formControlName="leave_type"  class="form-control" required>
+          <label for="Sickleave">Sickleave</label> 
+         
+        </div>
+        </fieldset>
+    
+      <div
+        *ngIf="leaveForm.get('leave_type')?.hasError('required') && leaveForm.get('leave_type')?.touched"
+        class="text-danger mt-2"
+        style="color: red;"
+      >
+        Leave Type is required.
+        Please select only one of the following
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="leaveForm" >
+      <label for="from_date">From Date:</label>
+      <input
+        type="date"
+        id="from_date"
+        formControlName="from_date"
+        class="form-control"
+        formcontrol = "from_date"
+      />
+      <div
+        *ngIf="leaveForm.get('from_date')?.hasError('required') && leaveForm.get('from_date')?.touched"
+        class="text-danger mt-2"
+      >   From Date is required.
+      From date must be greater than to date </div>
+      <div *ngif=
+      >
+   
+       
+
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="leaveForm" >
+      <label for="to_date">To Date:</label>
+      <input
+        type="date"
+        id="to_date"
+        formControlName="to_date"
+        class="form-control"
+
+        />
+      <div
+        *ngIf="leaveForm.get('to_date')?.hasError('required') && leaveForm.get('to_date')?.touched"
+        class="text-danger mt-2"
+      >
+        To Date is required.
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="leaveForm">
+      <label for="team_name">Team Name:</label>
+      <input
+        type="text"
+        id="team_name"
+        formControlName="team_name"
+        class="form-control"
+        placeholder="Enter your team name"
+      />
+      <div
+        *ngIf="leaveForm.get('team_name')?.hasError('required') && leaveForm.get('team_name')?.touched"
+        class="text-danger mt-2"
+        style=" color: brown;"
+      >
+        Team Name is required.
+      </div>
+    </div>
+
+    <div class="form-group" *ngIf="leaveForm">
+      <label for="reporter">Reporter:</label>
+      <select for="reporter" id="reporter" formControlName="reporter" required class="form-control">
+        <option value=""> Choose Your Reporter </option>
+        <option value="M1">M1</option> 
+        <option value="M2">M2</option> 
+        <option value="M3">M3</option> 
+        <option value="M4">M4</option> 
+        </select>
+    
+      <div
+        *ngIf="leaveForm.get('reporter')?.hasError('required') && leaveForm.get('reporter')?.touched"
+        class="text-danger mt-2"
+      >
+        Reporter is required.
+      </div>
+    </div>
+
+    <!-- If file upload is needed, add file input here -->
+    <div class="form-group" >
+      <label for="sick_leaves_file">Upload File : </label>
+
+      <input
+
+        type="file"
+        id="sick_leaves_file"
+        formControlName="sick_leaves_file"
+        class="sick_leaves_file"
+        (onchange) ="onFileSelected($event)"
+        required accept=".png, .pdf"
+      />
+      <div *ngIf=>
+        
+      </div>
+    </div>
+    
+   
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="leaveForm.invalid && sick_leaves_file != Sickleave"
+    >
+      Submit
+    </button>
+
+  </form>
+</div>
+

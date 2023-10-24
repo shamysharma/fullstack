@@ -1,0 +1,30 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-text"> 
+           <button style=color:black [routerLink]="['/view-visuals']" >Data Visualization</button>
+           <button style=color:black [routerLink]="['/leave-form']" >Logout</button>
+      </span>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h2 class="mt-4">Leave Requests</h2>
+    <table class="table table-bordered mt-4">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Reporter</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor=" let Notifi of notifiData">
+            <td>{{ Notifi.Id }}</td>
+            <td>{{ Notifi.Reporter}}</td>
+            <td>{{ Notifi.Status }}</td>
+            <td>
+               
+            </td>
+          </tr>
+
+      </tbody>
